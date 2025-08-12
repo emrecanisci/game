@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <% if (error && error.length > 0) { %>
+    <div class="error"><%= error %></div>
+  <% } %>
+  <% if (success && success.length > 0) { %>
+    <div class="success"><%= success %></div>
+  <% } %>
+  <nav>
+    <% if (currentUser) { %>
+      <span>Hi, <%= currentUser.username %></span>
+      <a href="/logout">Logout</a>
+      <a href="/game/roulette">Roulette</a>
+    <% } else { %>
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+    <% } %>
+    <a href="/">Home</a>
+  </nav>
+  <main>
+    <%- body %>
+  </main>
+</body>
+</html>
